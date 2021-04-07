@@ -1,0 +1,15 @@
+server:
+  port: 9011
+spring:
+  application:
+    name: service-product
+eureka: 
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9000/eureka/,http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address:  true
+    instance-id:  ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+name: demoApp-product-dev
